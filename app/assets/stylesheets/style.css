@@ -1,0 +1,14 @@
+* {
+  font-family: 'Yanone Kaffeesatz', arial, serif;
+  background: rgb(43, 41, 41);
+}
+h1 {
+  text-align: center;
+  font-size: 10em;
+}
+.yes {
+  color: rgb(212, 237, 92);
+}
+.no {
+  color: rgb(251, 69, 69);
+}
