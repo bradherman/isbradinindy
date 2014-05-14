@@ -29,7 +29,7 @@ class Location < ActiveRecord::Base
 
   def notify
     return unless Rails.env.production?
-    msg = Messages.location_changed(city)
+    msg = Messages.location_changed(self)
     BIRDIE.update(msg)
   end
 end
