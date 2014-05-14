@@ -1,5 +1,6 @@
-<% if STATUS == "inindy" %>
+<% if Location.indy? %>
   <h1 class='yes'>FUCK YEAH</h1>
 <% else %>
   <h1 class='no'>HELL NO</h1>
+  <h2>That dude is in <%= @current %> right meow</h2>
 <% end %>
