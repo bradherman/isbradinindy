@@ -1,4 +1,6 @@
 class LocationsController < ApiController
+  protect_from_forgery except: [:create]
+
   def create
     checkin = Location.new(location_params)
 
