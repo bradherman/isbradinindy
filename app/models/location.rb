@@ -1,7 +1,6 @@
 class Location < ActiveRecord::Base
   before_validation   :reverse_geocode
   
-  after_create        :clear
   after_create        :notify
   after_create        :set_attrs
 
@@ -23,14 +22,8 @@ class Location < ActiveRecord::Base
     self.update(indy: true) if city.downcase == 'indianapolis'
   end
 
-  def clear
-    Location.first.destroy if Location.count > 1
-  end
-
   def notify
-    return unless Rails.env.production?
     msg = Messages.location_changed(self)
-    BIRDIE.update(msg)
-    # use koala for facebook
+    Sender.new(msg, Tweet, Page).send!
   end
 end

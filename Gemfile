@@ -5,6 +5,7 @@ ruby "2.1.1"
 gem 'rails', '4.0.4'
 gem 'sqlite3', group: :development
 gem 'figaro'
+gem 'fb_graph'
 gem 'pg'
 gem 'geocoder'
 gem 'sass-rails', '~> 4.0.0'
