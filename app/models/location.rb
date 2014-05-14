@@ -31,5 +31,6 @@ class Location < ActiveRecord::Base
     return unless Rails.env.production?
     msg = Messages.location_changed(self)
     BIRDIE.update(msg)
+    # use koala for facebook
   end
 end
