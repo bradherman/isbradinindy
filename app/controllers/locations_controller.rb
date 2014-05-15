@@ -6,7 +6,7 @@ class LocationsController < ApiController
   end
 
   def create
-    checkin = Location.save(location_params)
+    checkin = Location.new(location_params)
 
     if checkin.save
       json    = { city: checkin.city }
