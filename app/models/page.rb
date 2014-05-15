@@ -10,6 +10,6 @@ class Page < Notifier
   end
 
   def page
-    @account ||= FBOOK.accounts.first
+    @page ||= FBOOK.accounts.first
   end
 end
