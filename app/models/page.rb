@@ -1,5 +1,5 @@
 class Page < Notifier
-  attr_accessor :page, :token, :account
+  attr_accessor :account
 
   def initialize(message)
     super
@@ -10,14 +10,6 @@ class Page < Notifier
   end
 
   def page
-    @page ||= FbGraph::User.me(@tok)
-  end
-
-  def token
-    @token ||= acct.access_token
-  end
-
-  def account
-    @account ||= FBOOK.accounts.detect{|x| x.name == 'Isbradinindy'}
+    @account ||= FBOOK.accounts.first
   end
 end
