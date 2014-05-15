@@ -28,6 +28,6 @@ class Location < ActiveRecord::Base
   end
 
   def checked_in?
-    errors.add(:city, 'already checked in')
+    errors.add(:city, 'already checked in') if Location.last.city == self.city
   end
 end
