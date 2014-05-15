@@ -6,10 +6,10 @@ class Page < Notifier
   end
 
   def send!
-    page.feed!(message: message)
+    account.feed!(message: message)
   end
 
   def page
-    @page ||= FBOOK.accounts.first
+    @account ||= FBOOK.accounts.first
   end
 end
