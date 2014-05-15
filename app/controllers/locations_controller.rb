@@ -6,9 +6,17 @@ class LocationsController < ApiController
   end
 
   def create
-    checkin = Location.create(location_params)
+    checkin = Location.save(location_params)
 
-    render json: {city: checkin.city}, callback: params[:callback]
+    if checkin.save
+      json    = { city: checkin.city }
+      status  = 200
+    else
+      json = { message: checkin.errors.full_messages*',' }
+      status  = 422
+    end
+
+    render status: status, json: json, callback: params[:callback]
   end
 
   protected

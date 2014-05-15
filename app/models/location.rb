@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   after_create        :notify
   after_create        :set_attrs
 
-  validates :city, uniqueness: true
+  validates :checked_in?
 
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     obj.city = results.first.city if results.first
@@ -25,5 +25,9 @@ class Location < ActiveRecord::Base
   def notify
     msg = Messages.location_changed(self)
     Sender.new(msg, Tweet, Page).send!
+  end
+
+  def checked_in?
+    errors.add(:city, 'already checked in')
   end
 end
