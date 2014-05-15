@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   after_create        :notify
   after_create        :set_attrs
 
-  validates :checked_in?
+  validate :checked_in?
 
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     obj.city = results.first.city if results.first
