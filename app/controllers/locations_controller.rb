@@ -1,6 +1,10 @@
 class LocationsController < ApiController
   protect_from_forgery except: [:create]
 
+  def index
+    render json: Location.page, callback: params[:callback]
+  end
+
   def create
     checkin = Location.create(location_params)
 
