@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter'
 gem 'jbuilder', '~> 1.2'
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', require: false
