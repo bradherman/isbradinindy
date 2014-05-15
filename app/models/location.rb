@@ -32,7 +32,7 @@ class Location < ActiveRecord::Base
 
   def notify
     msg = Messages.location_changed(self)
-    Sender.new(msg, Tweet, Page).send!
+    Sender.new(msg, Tweet).send!
   end
 
   def checked_in?
