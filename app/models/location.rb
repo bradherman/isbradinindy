@@ -16,6 +16,14 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def date
+    created_at.strftime('%D')
+  end
+
+  def as_json(options={})
+    {city: city, date: date}
+  end
+
   private
 
   def set_attrs
